@@ -77,9 +77,10 @@ assets/                      # Static resources
 ├─ icons/                    # Icons
 └─ fonts/                    # Custom fonts
 
+
+integration_test/ # Integration tests
 test/ # Testing structure
-├─ unit/ # Unit tests
-└─ integration/ # Integration tests
+└─ unit/ # Unit tests
 ```
 
 ## Tech Stack
