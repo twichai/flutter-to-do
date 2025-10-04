@@ -157,7 +157,9 @@ void main() {
 
       // Assert
       expect(result, isA<Success<TodoEntity, Failure>>());
-      // The repository should receive the trimmed title
+      expect(result.value?.title, 'Clean Title');
+      
+      // Verify the repository received the trimmed title
       final allTodos = await mockRepository.getTodos();
       expect(allTodos[0].title, 'Clean Title');
     });

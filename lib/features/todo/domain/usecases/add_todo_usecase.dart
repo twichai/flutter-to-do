@@ -16,12 +16,13 @@ class AddTodoUseCase implements UseCase<TodoEntity, AddTodoParams> {
 
   @override
   Future<Result<TodoEntity, Failure>> call(AddTodoParams params) async {
-    if (params.title.trim().isEmpty) {
+    final trimmedTitle = params.title.trim();
+    if (trimmedTitle.isEmpty) {
       return const Error(DatabaseFailure('Todo title cannot be empty'));
     }
 
     try {
-      final todo = await repository.addTodo(params.title);
+      final todo = await repository.addTodo(trimmedTitle);
       return Success(todo);
     } on DatabaseFailure catch (failure) {
       return Error(failure);
