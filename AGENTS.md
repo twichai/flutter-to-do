@@ -11,7 +11,7 @@ Welcome to this Flutter project repository. This file contains the main points f
    - **Domain**: `domain/` for entities and use cases.
    - **Presentation**: `presentation/` for views, viewmodels, and providers.
    - **DI**: `di/` for dependency injection setup.
-- **Tests**: `test/` with `unit/`, `widget/`, and `integration/` directories for comprehensive testing.
+- **Tests**: `test/` with `unit/`, and `integration/` directories for comprehensive testing.
 - **App Entry**: `main.dart` as the application entry point.
 - **Routing**: `routes.dart` for navigation and route definitions.
 
@@ -75,7 +75,6 @@ lib/
 │
 ├─test/                         # Testing structure
 │ ├─ unit/                      # Unit tests
-│ ├─ widget/                    # Widget tests
 │ └─ integration/               # Integration tests
 ├─ main.dart                    # App entry point
 └─ routes.dart                  # Navigation & routes
@@ -134,12 +133,10 @@ Use Flutter's built-in testing framework with comprehensive coverage:
 ```bash
 flutter test --coverage      # Generate coverage report
 flutter test test/unit/       # Run unit tests only
-flutter test test/widget/     # Run widget tests only
 flutter test integration_test/ # Run integration tests
 ```
 
 - Test all public methods and critical user flows
-- Use widget tests for UI component verification
 - Implement golden tests for visual regression testing
 - Test state management (Riverpod providers)
 - Include integration tests for complete user scenarios
@@ -281,7 +278,6 @@ Before submitting, ensure:
 ## Testing strategies
 
 - Write unit tests for business logic and utility functions.
-- Create widget tests for UI components and user interactions.
 - Implement integration tests for complete user flows.
 - Use golden tests for visual regression testing.
 - Mock external dependencies appropriately.
