@@ -1,16 +1,37 @@
 # demo_todo
 
-A new Flutter project.
+A Flutter project created to experiment with Clean Architecture and MVVM patterns.  
+This repository demonstrates best practices for scalable Flutter apps, including:
+
+- **Layered architecture**: Separation of data, domain, and presentation layers
+- **MVVM pattern**: Clear separation of UI and business logic
+- **Comprehensive testing**: Includes unit tests, widget tests, and integration tests
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. **Install dependencies**:
+    ```bash
+    flutter pub get
+    flutter pub run build_runner build
+    ```
 
-A few resources to get you started if this is your first Flutter project:
+2. **Run tests**:
+    ```bash
+    flutter test --coverage
+    flutter test test/unit/
+    flutter test test/widget/
+    flutter test integration_test/
+    ```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+3. **Run the app**:
+    ```bash
+    flutter run
+    ```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Resources
+
+- [Clean Architecture in Flutter](https://medium.com/flutter-community/flutter-clean-architecture-tutorial-8c5e8e1b8a7e)
+- [MVVM in Flutter](https://docs.flutter.dev/development/data-and-backend/state-mgmt/simple)
+- [Flutter Testing Guide](https://docs.flutter.dev/testing)
+
+For more details on project structure and contribution guidelines, see [AGENTS.md](./AGENTS.md).
