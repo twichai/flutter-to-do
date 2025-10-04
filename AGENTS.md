@@ -4,15 +4,35 @@ Welcome to this Flutter project repository. This file contains the main points f
 
 ## Repository overview
 
-- **Source code**: `lib/` contains the main application code organized by features.
-- **Core**: `lib/core/` for constants, errors, utilities, and themes.
-- **Data layer**: `lib/features/[data name]/data/` for models, repositories, and external services.
-- **Domain layer**: `lib/features/[data name]/domain/` for entities, use cases, and business logic.
-- **Presentation**: `lib/presentation/` for UI components, pages, and state management.
-- **Tests**: `test/` with unit, widget, and integration test directories.
-- **Assets**: `assets/` for images, icons, fonts, and other static resources.
+- **Assets**: `lib/assets/` for images, icons, fonts, and other static resources.
+- **Core**: `lib/core/` for common utilities, error handling, base classes, network configuration, and constants.
+- **Data Layer**: `lib/data/` for persistent storage and data access, including local database implementation (`database/`), DAOs, seeds, tables, and main database setup.
+- **Features**: `lib/features/[feature]/` for self-contained feature modules, each with its own data, domain, presentation, and dependency injection layers.  - **Data**: `data/` for datasources and repository implementations.
+   - **Domain**: `domain/` for entities and use cases.
+   - **Presentation**: `presentation/` for views, viewmodels, and providers.
+   - **DI**: `di/` for dependency injection setup.
+- **Tests**: `test/` with `unit/`, `widget/`, and `integration/` directories for comprehensive testing.
+- **App Entry**: `main.dart` as the application entry point.
+- **Routing**: `routes.dart` for navigation and route definitions.
 
-## 📂 Project Structure
+
+## Working steps
+Follow these steps when contributing to a new feature:
+
+1. **Create Entry Point**  
+   Start by creating an entry file at `lib/features/[feature]/entry`.
+
+2. **Implement Use Cases**  
+   Define use case abstractions in `lib/features/[feature]/usecase`.
+
+3. **Repository Layer**  
+   Create an abstract repository class in `lib/features/[feature]/repository`.  
+   Implement the repository, typically leveraging existing functions in `data/database/daos`.
+
+4. **UI & Logic**  
+   Build the UI in the `view` directory and implement UI logic in the `viewmodel` directory.  
+   Widgets are usually split for better maintainability and reuse.
+
 
 ```
 lib/
@@ -26,29 +46,30 @@ lib/
 │  ├─ network/                  # Network info, API config
 │  └─ utils/                    # Helpers, constants, formatters
 │
-├─ data/                        # 
-│  └─ database/                 # 
-│     ├─ daos/                  #
-│     ├─ seeds/                 #
-│     ├─ tables/                #
-│     └─ app_database.dart      #
+├─ data/                        # Data layer for persistent storage and data access
+│  └─ database/                 # Local database implementation (Drift/SQLite)
+│     ├─ daos/                  # Data Access Objects: CRUD operations for tables
+│     ├─ seeds/                 # Initial data population scripts and seed files
+│     ├─ tables/                # Database table definitions and schema files
+│     └─ app_database.dart      # Main database setup, configuration, and entry point
 │
 ├─ features/                    # Each feature is self-contained
 │  └─ authentication/           # example feature
 │     ├─ data/
 │     │  ├─ datasources/        # Remote & local data sources
-│     │  ├─ models/             # Data models (DTOs)
 │     │  └─ repositories/       # Repository implementations
+│     │     ├─ todo_impl.dars
+│     │     └─ todo.dars        # Define behavior, not implementation (abstract class, interface)
 │     │
 │     ├─ domain/
 │     │  ├─ entities/           # Business entities (pure Dart)
-│     │  ├─ repositories/       # Abstract repo contracts
 │     │  └─ usecases/           # Application business logic
 │     │
 │     ├─ presentation/
-│     │  ├─ blocs/              # State management (Bloc/Provider/Cubit)
-│     │  ├─ pages/              # Screens & widgets
-│     │  └─ widgets/            # Reusable UI components
+│     │  ├─ view/               # UI screens & widgets (Views)
+│     │  ├─ viewmodel/          # Business/UI logic (StateNotifiers or AsyncNotifiers)
+│     │  ├─ widgets/
+│     │  └─ providers.dart      # Riverpod provider definitions & DI glue
 │     │
 │     └─ di/                    # Dependency injection for this feature
 │
@@ -104,8 +125,6 @@ lib/
    ```bash
    flutter build apk          # Android APK
    flutter build ios          # iOS build
-   flutter build web          # Web build
-   flutter build windows      # Windows build (if configured)
    ```
 
 ## Testing guidelines
