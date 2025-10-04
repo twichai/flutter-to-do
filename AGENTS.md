@@ -36,10 +36,6 @@ Follow these steps when contributing to a new feature:
 
 ```
 lib/
-├─ assets/                      # Static resources
-│  ├─ images/                   # App images
-│  ├─ icons/                    # Icons
-│  └─ fonts/                    # Custom fonts
 ├─ core/                        # Common utilities & base classes
 │  ├─ error/                    # Exceptions, Failure classes
 │  ├─ usecases/                 # Base use case
@@ -73,11 +69,17 @@ lib/
 │     │
 │     └─ di/                    # Dependency injection for this feature
 │
-├─test/                         # Testing structure
-│ ├─ unit/                      # Unit tests
-│ └─ integration/               # Integration tests
 ├─ main.dart                    # App entry point
 └─ routes.dart                  # Navigation & routes
+
+assets/                      # Static resources
+├─ images/                   # App images
+├─ icons/                    # Icons
+└─ fonts/                    # Custom fonts
+
+test/ # Testing structure
+├─ unit/ # Unit tests
+└─ integration/ # Integration tests
 ```
 
 ## Tech Stack
