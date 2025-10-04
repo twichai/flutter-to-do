@@ -88,7 +88,7 @@ lib/
 - **State Management**: flutter_riverpod: ^2.5.1 + riverpod_annotation: ^2.3.5
 - **Data Classes**: freezed_annotation: ^2.4.4
 - **JSON Serialization**: json_annotation: ^4.9.0
-- **Backend**: drift: ^2.19.1+1 (SQLite) with supporting packages
+- **Backend**: drift: ^2.19.1+1 (SQLite) sqlite3_flutter_libs: ^0.5.0 with supporting packages
 - **Navigation**: go_router: ^14.2.7
 - **HTTP Client**: dio: ^5.7.0
 - **Image Handling**: cached_network_image: ^3.4.1
